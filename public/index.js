@@ -125,7 +125,7 @@ const submit_schedule = document.getElementById("submit_schedule");
 const weekButton = document.querySelector("#weekButton");
 
 weekButton.addEventListener("click", () => {
-  window.location = "http://localhost:3000/week";
+  window.location = "/week";
 });
 
 const teacherName = document.querySelector("#teacher_name");

@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 
-const connection = require("./database/db");
+const PORT = process.env.PORT || 3000;
+
 const pool = require("./database/db");
 
 app.use(express.urlencoded());
@@ -242,4 +243,4 @@ app.get("/getWeek/:date", (req, res) => {
   });
 });
 
-app.listen(3000);
+app.listen(PORT);
