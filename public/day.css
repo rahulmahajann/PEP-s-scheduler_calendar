@@ -79,7 +79,7 @@ body{
   opacity: 1;
 }
 
-.modal {
+.editmodal {
   position: relative;
   color: rgb(255, 255, 255);
   background: rgb(0, 0, 0);
@@ -94,11 +94,11 @@ body{
   box-shadow: 13px 13px 20px #4b87c2, -13px -13px 20px #e20d0d;
 }
 
-.modal.active {
+.editmodal.active {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.modal-header {
+.editmodal-header {
   padding: 10px 15px;
   display: flex;
   justify-content: space-between;
@@ -116,11 +116,11 @@ body{
   font-weight: bold;
 }
 
-.modal-body {
+.editmodal-body {
   padding: 10px 15px;
 }
 
-.modal-header .title {
+.editmodal-header .title {
   font-size: 1.25rem;
   font-weight: bold;
 }
@@ -139,7 +139,7 @@ body{
   padding: 20px 10px 20px 5px;
 }
 
-.modal label{
+.editmodal label{
   font-size: 50%;
 }
 
@@ -187,4 +187,105 @@ button {
 
 .hidden {
   display: none;
+}
+
+.modal {
+  color: rgb(255, 255, 255);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border-radius: 10px;
+  z-index: 10;
+  width: 500px;
+  max-width: 80%;
+  padding: 10px 35px 35px 35px;
+  border-radius: 40px;
+  background: #000000;
+  box-shadow: 13px 13px 20px #4b87c2, -13px -13px 20px #e20d0d;
+}
+
+button {
+  width: 75px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px gray;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+}
+
+.modal label{
+  font-size: 20px;
+}
+
+.modal title {
+  text-align: center;
+  font-size: 28px;
+  padding-top: 24px;
+  letter-spacing: 0.5px;
+}
+
+.modal fields {
+  width: 100%;
+  padding: 75px 5px 5px 5px;
+}
+.modal fields input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  padding: 20px 10px 20px 5px;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  color: rgb(241, 15, 15);
+  right: 0;
+  bottom: 0;
+  background-color: rgba(94, 89, 98, 0.659);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }

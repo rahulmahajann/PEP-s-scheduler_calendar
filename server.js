@@ -59,14 +59,13 @@ app.post("/create", (req, res) => {
       }
     }
     if (count == 1 || array.length == 0) {
-      console.log("han thik hai add krdo");
       const query = `INSERT INTO schedule Values (NULL,'${teacher_name}', '${batch_name}', '${start_time}', '${end_time}', '${date}', '${task}')`;
       pool.query(query, (err, result) => {
         if (err) throw err;
       });
       // res.redirect("/");
     } else {
-      console.log("nhi bhai glt hogya");
+      res.send("<h1>sorry, :( you cann't add task at that moment because schedules are overlapping please try some other slot!</h1> <br> Go back to restore things")
       // alert('time change krdo')
     }
     res.redirect("/");
@@ -235,7 +234,7 @@ app.get("/getWeek/:date", (req, res) => {
 
   console.log(date, endDate);
 
-  const query = `SELECT * FROM schedule WHERE date BETWEEN '${date}' AND '${endDate}';`;
+  const query = `SELECT * FROM schedule WHERE date BETWEEN '${date}' AND '${endDate}' order by date;`;
 
   pool.query(query, (err, results) => {
     if (err) throw err;

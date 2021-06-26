@@ -184,7 +184,6 @@ const deleteData = (event, divBlock, events) => {
 const updateBtn = document.querySelector("#updateBtn");
 
 const updateData = (prevData, newData) => {
-  // const modalBg = document.querySelector(".modal-bg");
 
   console.log(newData);
   const data = {
@@ -199,9 +198,6 @@ const updateData = (prevData, newData) => {
     body: JSON.stringify(data),
   };
 
-  fetch(`/update/${dateDisplay}`, options).then((res) => {
-    // res.json().then(() => console.log("Updated"));
-  });
 };
 
 
@@ -216,9 +212,75 @@ monthButton.addEventListener("click", () => {
   window.location = `/`;
 });
 
+const openModalButtons = document.querySelectorAll("[data-modal-target]");
+const closeModalButtons = document.querySelectorAll("[data-close-button]");
+const overlay = document.getElementById("overlay");
+
+openModalButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = document.querySelector(button.dataset.modalTarget);
+    openModal(modal);
+  });
+});
+
+overlay.addEventListener("click", () => {
+  const modals = document.querySelectorAll(".modal.active");
+  modals.forEach((modal) => {
+    closeModal(modal);
+  });
+});
+
+closeModalButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = button.closest(".modal");
+    closeModal(modal);
+  });
+});
+
+function openModal(modal) {
+  if (modal == null) return;
+  modal.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closeModal(modal) {
+  if (modal == null) return;
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+}
+
+const teacherName = document.querySelector("#teacher_name");
+
+const options = {
+  method: "GET",
+};
+fetch("/available_teacher", options)
+  .then((res) => {
+    res.json().then((results) => {
+      results.forEach((result) => {
+        const option = document.createElement("option");
+        option.value = result;
+        option.innerText = result;
+        teacherName.appendChild(option);
+      });
+    });
+  })
+.catch((e) => console.log(e));
 
 
 
+const batchName = document.querySelector("#batch_name");
 
-
-
+fetch("/available_batch", options)
+  .then((res) => {
+    res.json().then((results) => {
+      // console.log("YUp");
+      results.forEach((result) => {
+        const option = document.createElement("option");
+        option.value = result;
+        option.innerText = result;
+        batchName.appendChild(option);
+      });
+    });
+  })
+.catch((e) => console.log(e));

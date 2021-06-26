@@ -3,7 +3,7 @@ body {
   margin-top: 50px;
   justify-content: center;
   background-color: #ff0000;
-  color: #09cfee;
+  /* color: #09cfee; */
 }
 button {
   width: 75px;
@@ -262,4 +262,30 @@ button {
 .add_schedule button {
   font-size: 0.8em;
   color: black;
+}
+
+
+
+
+flex {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.flex-item {
+  width: 60%;
+  display: flex;
+  flex-flow: row;
+}
+.flex-sub-item {
+  border: 1px solid white;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  font-size: 20px;
+  align-items: center;
 }

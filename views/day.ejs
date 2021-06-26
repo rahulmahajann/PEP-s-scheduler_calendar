@@ -16,7 +16,37 @@
         </div>
         <button id="monthButton">Month View</button>
         <button id="weekButton">Week View</button>
-        <button id="addtask_Button">Add Tasl</button>
+        <button data-modal-target="#modal_addtask" >Add Task</button>
+
+        <div class="modal" id="modal_addtask">
+          <div class="modal-header">
+            <div class="title">Add Task To The Scheduler</div>
+            <button data-close-button class="close-button">&times</button>
+          </div>
+  
+          <div class="add_schedule">
+            <form class='form' action="/create" method="POST" >
+              <label for="teacher_name">Teacher's Name:</label>
+              <select name="teacher_name" id="teacher_name">
+                <option value="None">None</option>
+              </select>
+              <label for="batch_name">Batch's Name:</label>
+              <select name="batch_name" id="batch_name">
+                <option value="None">None</option>
+              </select>
+              <label for="start_time">Start Time:</label>
+              <input type="time" name="start_time" id='start_time' required>
+              <label for="end_time">End Time:</label>
+              <input type="time" name="end_time" id='end_time' required>
+              <label for="date">Lecture Date:</label>
+              <input type="date" name="date" id='manual_date' required>
+              <label for="task">Enter Task:</label>
+              <input type="text" name="task" id='task' required>
+              <button type="submit" id="submit_schedule">Submit</button>
+            </form>
+          </div>
+        </div>
+
         <div class="flex">
             <div class="flex-item">
                 <div class="flex-sub-item">Teacher</div>
@@ -31,7 +61,7 @@
           <div>
           </div>
           <div class="modal-bg">
-             <div class="modal">
+             <div class="editmodal">
                <label for="newTName">Teacher Name:</label>
                <input type="text" name="newTName"  id="newTName">
                <label for="newBName">Batch Name:</label>
@@ -46,6 +76,8 @@
               <span class="modal-close">X</span>
              </div>
           </div>
+
+          <div id="overlay"></div>
     </div>
         <script src="https://kit.fontawesome.com/bf83cce012.js" crossorigin="anonymous"></script>
     <script defer src="day.js"></script>

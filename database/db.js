@@ -19,7 +19,7 @@ const connection=mysql.createPool({
   user: "urjrbilayxxurnff",
   password: "Q2MJVMArfWREWbzquMys",
   database: "bs2krq3wttjzlmzfknik",
-
+  
 })
 
 // pool.query('select 1+1',(err,rows)=>{/* */})
