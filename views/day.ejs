@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Scheduler Calendar</title>
+
+    <link rel="stylesheet" href="day.css">
+  </head>
+  <body>
+    
+    <div id="container">
+      <div id="header">
+          <div class="top">
+            <div id="dateDisplay"><%=`${day} ${month}, ${year}`%></div>
+            <div class="hidden"><%=`${year}-${monthNum}-${day}`%></div>
+            <div><i class="fas fa-trash cursor dragDel"></i></div>
+        </div>
+        <button id="monthButton">Month View</button>
+        <button id="weekButton">Week View</button>
+        <button id="addtask_Button">Add Tasl</button>
+        <div class="flex">
+            <div class="flex-item">
+                <div class="flex-sub-item">Teacher</div>
+                <div class="flex-sub-item">Batch</div>
+                <div class="flex-sub-item">Start Time</div>
+                <div class="flex-sub-item">End Time</div>
+                <div class="flex-sub-item ">Task</div>
+                <div class="flex-sub-item">Delete</div>
+                <div class="flex-sub-item">Edit</div>
+            </div>
+          </div>
+          <div>
+          </div>
+          <div class="modal-bg">
+             <div class="modal">
+               <label for="newTName">Teacher Name:</label>
+               <input type="text" name="newTName"  id="newTName">
+               <label for="newBName">Batch Name:</label>
+               <input type="text" name="newBName" id="newBName">
+               <label for="newST">Start Time:</label>
+               <input type="time" name="newST" id="newST">
+               <label for="newET">End Time:</label>
+               <input type="time" name="newET" id="newET">
+               <label for="newTask">Task:</label>
+               <input type="text" name="newTask" id="newTask">
+              <button type="submit" id="updateBtn">Update</button>
+              <span class="modal-close">X</span>
+             </div>
+          </div>
+    </div>
+        <script src="https://kit.fontawesome.com/bf83cce012.js" crossorigin="anonymous"></script>
+    <script defer src="day.js"></script>
+  </body>
+</html>

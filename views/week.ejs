@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Scheduler Calendar</title>
+
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    
+    <div id="container">
+      <div id="header">
+        <div>
+          <button id="monthbtn">Month View</button>
+        </div>
+      </div>
+
+      <div id="weekdays">
+        <div>Sunday</div>
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+      </div>
+
+      <div id="calendar"></div>
+    </div>
+    <script src="week.js"></script>
+    <script type="text/javascript" src="hover.js"></script>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelector(".day"), {
+        max: 25,
+        speed: 1000
+      });
+      VanillaTilt.init(document.querySelectorAll(".day"));
+    </script>
+    <script src="https://kit.fontawesome.com/704ff50790.js" crossorigin="anonymous"></script>
+  </body>
+</html>
