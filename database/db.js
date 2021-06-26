@@ -16,9 +16,9 @@ const mysql = require("mysql");
 
 const connection=mysql.createPool({
   host: "bs2krq3wttjzlmzfknik-mysql.services.clever-cloud.com",
-  user: "urjrbilayxxurnff",
-  password: "Q2MJVMArfWREWbzquMys",
-  database: "bs2krq3wttjzlmzfknik",
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
   
 })
 
