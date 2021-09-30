@@ -1,0 +1,18 @@
+<div class="modal" id="modal_batch">
+        <div class="modal-header">
+          <div class="title">Add Batch Detail to System</div>
+          <button data-close-button class="close-button">&times</button>
+        </div>
+        <div class="add_schedule">
+          <form class='form' action="/batch" method="POST" >
+            <label for="batch_name">Batch's Name:</label>
+            <input type="text" name="batch_name" id="batch_name" required>
+            <br>
+            <button type="submit" id="submit_schedule" class="effect effect-4">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div id="overlay"></div>
+      <div id="calendar"></div>
+    </div>
+    <script src="index.js"></script>
